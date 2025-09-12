@@ -25,8 +25,9 @@ pytest -q
 Run all checks and build verification:
 
 ```pwsh
-ruff check --select I --fix
 ruff format .
+ruff check --fix
+ruff check
 mkdocs build
 pre-commit run --all-files
 pytest -q

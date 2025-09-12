@@ -1,4 +1,10 @@
-# Civic Transparency Software Development Kit
+# Civic Transparency Software Development Kit (SDK)
+
+[![Docs](https://img.shields.io/badge/docs-mkdocs--material-blue)](https://civic-interconnect.github.io/civic-transparency-sdk/)
+[![PyPI](https://img.shields.io/pypi/v/civic-transparency-sdk.svg)](https://pypi.org/project/civic-transparency-sdk/)
+[![Python versions](https://img.shields.io/pypi/pyversions/civic-transparency-sdk.svg)](https://pypi.org/project/civic-transparency-sdk/)
+[![CI Status](https://github.com/civic-interconnect/civic-transparency-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/civic-interconnect/civic-transparency-sdk/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A software development kit for civic transparency applications.
 
