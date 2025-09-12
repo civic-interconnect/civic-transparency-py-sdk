@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/cli/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/cli/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/schema/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/schema/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/usage/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/usage/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/digests/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/digests/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/hash_core/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/hash_core/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/ids/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/ids/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/io_schema/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/io_schema/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/overview/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/overview/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/window_agg/</loc>
+        <lastmod>2025-09-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-sdk/latest/sdk/window_agg/"/>
+    </url>
+</urlset>
