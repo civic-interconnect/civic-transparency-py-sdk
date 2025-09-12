@@ -31,7 +31,6 @@ ruff check
 mkdocs build
 pre-commit run --all-files
 pytest -q
-
 ```
 
 ## DEV 3. Build and Inspect Package
@@ -58,8 +57,8 @@ Open: <http://127.0.0.1:8000/>
 ```pwsh
 Get-ChildItem -Path . -Recurse -Directory -Filter "*__pycache__*" | Remove-Item -Recurse -Force
 Get-ChildItem -Path . -Recurse -Directory -Filter ".*_cache"  | Remove-Item -Recurse -Force
-Get-ChildItem -Path "src" -Recurse -Directory -Name "*.egg-info" | Remove-Item -Recurse -Force 
-Remove-Item -Path "build", "dist", "site" -Recurse -Force 
+Get-ChildItem -Path "src" -Recurse -Directory -Name "*.egg-info" | Remove-Item -Recurse -Force
+Remove-Item -Path "build", "dist", "site" -Recurse -Force
 ```
 
 ## DEV 6. Update Docs & Verify
@@ -90,4 +89,3 @@ git push origin vx.y.z
 > A GitHub Action will **build**, **publish to PyPI** (Trusted Publishing), **create a GitHub Release** with artifacts, and **deploy versioned docs** with `mike`.
 
 > You do **not** need to run `gh release create` or upload files manually.
-

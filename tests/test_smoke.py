@@ -59,7 +59,7 @@ def test_serialization():
 
     # Test roundtrip
     json_data = windowagg_to_json(window)
-    restored = windowagg_from_json(json_data)
+    restored = windowagg_from_json(json_data)  # type: ignore
 
     assert restored.world_id == window.world_id
     assert restored.n_messages == window.n_messages
