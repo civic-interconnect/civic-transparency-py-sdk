@@ -1,0 +1,11 @@
+# .pre-commit-config.yaml
+# Only format or fix in pre-commit, not in CI.
+# CI should only check for issues, not fix them.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.8
+    hooks:
+      - id: ruff-format
+      - id: ruff
+        args: [--fix]
+

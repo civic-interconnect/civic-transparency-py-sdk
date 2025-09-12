@@ -1,0 +1,63 @@
+# .github/workflows/ci.yml
+name: Civic Transparency SDK CI (Build, Lint, Test, Coverage)
+# Runs on every push to the main branch and on pull requests.
+# First line of defense, catches issues before they reach release.
+# Designed to fail fast, run all tests, and generate coverage reports.
+# It does not fix issues, only checks them.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - name: Checkout (full history for tags) 
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python and cache ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Assemble. Install all dev dependencies (non-editable)
+        run: |
+          pip install ".[dev]"
+
+      - name: Baseline. Ruff lint (fail fast, check only, no format or auto-fix in CI)
+        run: ruff check .
+
+      - name: Baseline. Run tests (include any validation and coverage)
+        run: pytest -q
+
+      - name: Coverage. Generate summary
+        run: python .github/scripts/coverage_summary.py
+
+      - name: Coverage. Build HTML
+        run: coverage html
+
+      - name: Coverage. Combine and Upload Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports-${{ matrix.python-version }}
+          path: |
+            coverage.xml
+            htmlcov/
+          overwrite: true
+
+      - name: Deploy. Build package (sanity check)
+        run: python -m build
+
+      - name: Deploy. Build docs (sanity check)
+        run: mkdocs build

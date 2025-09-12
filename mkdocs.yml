@@ -1,0 +1,72 @@
+site_name: Civic Transparency SDK
+site_description: Software development kit for civic transparency applications
+site_author: Civic Interconnect
+site_url: https://civic-interconnect.github.io/civic-transparency-sdk/
+repo_url: https://github.com/civic-interconnect/civic-transparency-sdk
+edit_uri: edit/main/docs/en/
+
+theme:
+  name: material
+  language: en
+  favicon: img/favicon.png
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+  features:
+    - content.footer
+    - navigation.tabs
+    - navigation.top
+    - navigation.expand
+    - navigation.sections
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.tabs.stick
+  copyright: Copyright &copy; 2025 Civic Interconnect
+
+nav:
+  - Home: index.md
+  - Usage: usage.md
+  - CLI Reference: cli.md
+  - SDK Reference:
+      - Overview: sdk/overview.md
+      - Window Aggregation: sdk/window_agg.md
+      - Content Hashing: sdk/hash_core.md
+      - Content Digests: sdk/digests.md
+      - ID Management: sdk/ids.md
+      - I/O Schema: sdk/io_schema.md
+  - Schema Reference: schema.md
+  - Related Projects:
+      - CT Spec: https://civic-interconnect.github.io/civic-transparency-spec/
+      - CT Types: https://civic-interconnect.github.io/civic-transparency-types/
+docs_dir: docs/en
+
+plugins:
+  - search
+  - include-markdown
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+  - git-revision-date-localized:
+      type: iso_date
+      fallback_to_build_date: true
+      enable_creation_date: false
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: false
+            show_signature: true
+            group_by_category: true
+            filters: ["!^_"]  # hide private members
+
+markdown_extensions:
+- admonition
+- codehilite
+- pymdownx.snippets
+- pymdownx.tabbed
+- toc

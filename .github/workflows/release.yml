@@ -1,0 +1,70 @@
+# .github/workflows/release.yml
+name: CT SDK Release (GH Release + PyPI + versioned docs)
+# Designed to run only on version tags (e.g., v0.1.4).
+# Final step before distribution.
+# It builds distribution files, runs tests, prepares release, and publishes.
+
+on:
+  push:
+    tags:
+      - "v*.*.*"  # trigger only on version tags like v0.1.4
+
+permissions:
+  contents: write   # create the GitHub Release
+  id-token: write   # PyPI Trusted Publishing (OIDC)
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (full history) # so setuptools_scm can see tags
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python and cache
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Versioning. Extract plain version from tag (no leading `v`)
+        id: ver
+        shell: bash
+        run: echo "plain=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Versioning. Print build version for logs
+        run: echo "Building version ${{ steps.ver.outputs.plain }}"
+
+      - name: Assemble. Install all dev dependencies (non-editable)
+        run: |
+          pip install ".[dev]"
+
+      - name: Baseline. Run tests (include any validation and coverage)
+        run: pytest -q
+
+      - name: Deploy. Build sdist + wheel (exact version)
+        env:
+          SETUPTOOLS_SCM_PRETEND_VERSION: ${{ steps.ver.outputs.plain }}
+        run: python -m build
+
+      - name: Deploy. List artifacts
+        run: python .github/scripts/list_artifacts.py
+
+      - name: Deploy. Create GitHub Release, upload artifacts and set as latest
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}  # e.g., v0.1.4
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+          draft: false
+          prerelease: false
+          make_latest: true
+
+      - name: Deploy. Publish to PyPI (Trusted Publishing)
+        uses: pypa/gh-action-pypi-publish@release/v1
+

@@ -1,0 +1,110 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=77", "wheel", "setuptools-scm[toml]>=8"]
+
+[project]
+authors = [{name = "Civic Interconnect"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Education",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "duckdb",
+  "civic-transparency-types>=0.2.1",
+  "matplotlib",
+  "numpy",
+  "orjson",
+  "pandas",
+  "pydantic>=2.0.1",
+  "pyyaml",
+]
+
+description = "Civic Transparency SDK - Development kit for transparency applications"
+dynamic = ["version"]
+keywords = [
+  "transparency",
+  "api",
+  "sdk",
+  "civic",
+]
+license = "MIT"
+name = "civic-transparency-sdk"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = [
+  "build",
+  "jsonschema",
+  "mkdocs",
+  "mkdocs-git-revision-date-localized-plugin",
+  "mkdocs-include-markdown-plugin",
+  "mkdocs-material",
+  "mkdocs-static-i18n",
+  "mkdocstrings[python]",
+  "mike",
+  "pre-commit",
+  "pytest",
+  "pytest-cov",
+  "ruff",
+]
+
+docs-minify = [
+  "mkdocs-minify-plugin"
+]
+
+[project.scripts]
+ct-sdk = "ci.transparency.sdk.cli.main:main"
+
+[project.urls]
+Documentation = "https://civic-interconnect.github.io/civic-transparency-sdk/latest/"
+Homepage = "https://github.com/civic-interconnect/civic-transparency-sdk"
+Repository = "https://github.com/civic-interconnect/civic-transparency-sdk"
+
+[tool.coverage.report]
+fail_under = 30
+show_missing = true
+skip_covered = false
+
+[tool.coverage.run]
+branch = true
+omit = [
+  "src/ci/transparency/sdk/_version.py",
+]
+source = ["src/ci/transparency/sdk"]
+
+[tool.pytest.ini_options]
+addopts = "-q --cov=ci.transparency.sdk --cov-branch --cov-report=term-missing --cov-report=xml --cov-fail-under=75"
+filterwarnings = [
+  "ignore:The NumPy module was reloaded:UserWarning",
+]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools]
+include-package-data = true
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ["src"]
+
+[tool.setuptools.package-data]
+"ci.transparency.sdk" = ["py.typed"]
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
+version_scheme = "guess-next-dev"
+write_to = "src/ci/transparency/sdk/_version.py"
+
+[tool.ruff.lint.per-file-ignores]
+"src/ci/transparency/sdk/*.py" = ["F401"]
