@@ -1,5 +1,5 @@
+"""List artifacts in dist/ created by the build process."""
 # .github/scripts/list_artifacts.py
-
 
 from pathlib import Path
 import sys

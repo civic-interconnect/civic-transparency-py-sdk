@@ -14,6 +14,14 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.1.1] - 2025-10-11
+
+### Changed
+- Renamed repo from `civic-transparency-sdk` to `civic-transparency-py-sdk`
+- PyPi package remains `civic-transparency-sdk` as specified in pyproject.toml name.
+
+---
+
 ## [0.1.0] - 2025-09-11
 
 ### Added
@@ -35,5 +43,6 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
   Tag the repository with `vX.Y.Z` to publish a release.
 - Documentation and badges are updated per tag and aliased to **latest**.
 
-[Unreleased]: https://github.com/civic-interconnect/civic-transparency-py-sdk/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/civic-interconnect/civic-transparency-py-sdk/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/civic-interconnect/civic-transparency-py-sdk/releases/tag/v0.1.1
 [0.1.0]: https://github.com/civic-interconnect/civic-transparency-py-sdk/releases/tag/v0.1.0
