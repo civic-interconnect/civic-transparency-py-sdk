@@ -20,7 +20,7 @@ jobs:
         python-version: ["3.11", "3.12"]
 
     steps:
-      - name: Checkout (full history for tags) 
+      - name: Checkout (full history for tags)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0

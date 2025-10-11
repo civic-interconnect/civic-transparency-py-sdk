@@ -1,16 +1,14 @@
 # .github/scripts/list_artifacts.py
-from __future__ import annotations
 
-import sys
+
 from pathlib import Path
+import sys
 
 DIST = Path("dist")
 
 
 def main() -> int:
-    """
-    List the distribution artifacts created by the build process.
-    """
+    """List the distribution artifacts created by the build process."""
     if not DIST.exists():
         print("ERROR: dist/ does not exist")
         return 1

@@ -18,11 +18,11 @@ class WindowAgg:
     n_messages: int
     n_unique_hashes: int
     dup_rate: float
-    top_hashes: List[TopHash]
+    top_hashes: list[TopHash]
     hash_concentration: float
     burst_score: float
-    type_mix: Dict[str, float]
-    time_histogram: List[int]
+    type_mix: dict[str, float]
+    time_histogram: list[int]
     digests: Optional[Digests] = None
 ```
 
@@ -42,7 +42,7 @@ class WindowAgg:
 - **dup_rate**: Duplication rate (1.0 - unique_rate), range [0.0, 1.0]
 
 ### Content Clustering
-- **top_hashes**: List of most frequent content clusters with counts
+- **top_hashes**: list of most frequent content clusters with counts
 - **hash_concentration**: Herfindahl index measuring content concentration
 
 ### Temporal Patterns

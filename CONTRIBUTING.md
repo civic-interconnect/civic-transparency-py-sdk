@@ -1,42 +1,74 @@
 # CONTRIBUTING.md
 
+This repo hosts the **Civic Transparency Python SDK** under the **MIT License**.
+Goals: clarity, privacy-by-design, easy collaboration.
+
+> tl;dr: Open an Issue/Discussion first for non-trivial changes, keep PRs small, and run the quick local checks.
+---
+
 ## Ground Rules
 
 - **Code of Conduct**: Be respectful and constructive. Reports: `info@civicinterconnect.org`.
 - **License**: All contributions are accepted under the repo's **MIT License**.
+- **Single Source of Truth**: The definitions are in `src/ci/transparency/spec/schemas/`. Documentation should not contradict these files.
 
 ---
 
-## DEV 1. Start Locally
+## Before You Start
 
-Setup development environment (commands are for cross-platform PowerShell. Install on macOS/Linux as needed):
+**Open an Issue or Discussion** for non-trivial changes so we can align early.
 
-```pwsh
+---
+
+## Making Changes
+
+- Follow **Semantic Versioning**:
+  - **MAJOR**: breaking changes
+  - **MINOR**: backwards-compatible additions
+  - **PATCH**: clarifications/typos
+- When things change, update related docs, examples, and `CHANGELOG.md`.
+
+---
+
+## Local Dev with `uv`
+
+### Prerequisites
+
+- Python **3.12+** (3.13 supported)
+- Git, VS Code (optional), and **[uv](https://github.com/astral-sh/uv)**
+
+### One-time setup
+
+```bash
+uv python pin 3.12
 uv venv
-.\.venv\Scripts\activate
-uv pip install --upgrade pip setuptools wheel
-uv pip install --only-binary=:all: -e ".[dev]"
-pre-commit install
-pytest -q
+uv sync --extra dev --extra docs --upgrade
+uv run pre-commit install
 ```
 
-## DEV 2. Validate Changes
+## Validate Local Changes
 
-Run all checks and build verification:
+```bash
+git pull
+git add .
+uv run ruff check . --fix
+uv run ruff format .
+uv run deptry .
+uv run pyright
+uv run pytest
+uv run mkdocs build --strict
+```
 
-```pwsh
-ruff format .
-ruff check --fix
-ruff check
-mkdocs build
+Or run the project hooks (twice, if needed):
+
+```bash
 pre-commit run --all-files
-pytest -q
 ```
 
 ## DEV 3. Build and Inspect Package
 
 ```pwsh
-py -m build
+uv build
 
 $TMP = New-Item -ItemType Directory -Path ([System.IO.Path]::GetTempPath()) -Name ("wheel_" + [System.Guid]::NewGuid())
 Expand-Archive dist\*.whl -DestinationPath $TMP.FullName

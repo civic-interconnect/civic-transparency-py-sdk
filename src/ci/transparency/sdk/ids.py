@@ -1,5 +1,4 @@
-"""
-sdk/ids.py
+"""sdk/ids.py
 Identifiers for events, content hashes, estimated topics, and worlds.
 """
 
@@ -22,8 +21,7 @@ class HashId:
 
 @dataclass(frozen=True)
 class TopicId:
-    """
-    Deterministic cluster identifier derived from content identifiers/fingerprints.
+    """Deterministic cluster identifier derived from content identifiers/fingerprints.
     Store as 'algo:value' (same canonicalization discipline as HashId).
     """
 

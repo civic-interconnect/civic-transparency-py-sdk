@@ -67,4 +67,3 @@ jobs:
 
       - name: Deploy. Publish to PyPI (Trusted Publishing)
         uses: pypa/gh-action-pypi-publish@release/v1
-

@@ -1,6 +1,5 @@
 # scripts_py/gen_empty_world.py
-"""
-Generate a synthetic organic world JSONL for smoke tests.
+"""Generate a synthetic organic world JSONL for smoke tests.
 
 Usage:
   py -m scripts_py.gen_empty_world ^
@@ -12,14 +11,12 @@ Usage:
      --seed 4242
 """
 
-from __future__ import annotations
-
 import argparse
-import random
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from math import sqrt
 from pathlib import Path
-from typing import List
+import random
+import secrets
 
 from ci.transparency.sdk import (
     ContentHash,
@@ -79,10 +76,7 @@ def make_window(
     hhi = herfindahl([t.count for t in top])
 
     minutes = step_minutes
-    series = [
-        max(0, int((n_messages / minutes) + seed_rng.randint(-2, 2)))
-        for _ in range(minutes)
-    ]
+    series = [max(0, int((n_messages / minutes) + seed_rng.randint(-2, 2))) for _ in range(minutes)]
     burst = cv_of_bins(series)
 
     dig = Digests(
@@ -108,6 +102,7 @@ def make_window(
 
 
 def main() -> None:
+    """Parse arguments and generate a synthetic organic world JSONL file for smoke tests."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--world", required=True)
     ap.add_argument("--topic-id", required=True)
@@ -120,10 +115,10 @@ def main() -> None:
     # ensure parent folder exists
     args.out.parent.mkdir(parents=True, exist_ok=True)
 
-    rng = random.Random(args.seed)
-    t0 = datetime.now(timezone.utc).replace(microsecond=0)
+    rng = secrets.SystemRandom()
+    t0 = datetime.now(UTC).replace(microsecond=0)
 
-    rows: List[WindowAgg] = [
+    rows: list[WindowAgg] = [
         make_window(
             i,
             world=args.world,

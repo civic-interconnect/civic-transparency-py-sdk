@@ -1,14 +1,18 @@
+"""Script to parse coverage.xml and output a formatted coverage summary.
+
+This script reads a coverage.xml file, extracts line and branch coverage statistics,
+and prints or writes a Markdown-formatted summary suitable for GitHub Actions.
+"""
+
 # .github/scripts/coverage_summary.py
 import os
-import xml.etree.ElementTree as ET
 from pathlib import Path
-from typing import Optional
+
+import defusedxml.ElementTree as ET  # noqa: N817
 
 
-def get_coverage_summary() -> Optional[str]:
-    """
-    Parses a coverage.xml file and returns a formatted summary.
-    """
+def get_coverage_summary() -> str | None:
+    """Parse a coverage.xml file and return a formatted summary."""
     cov = Path("coverage.xml")
     if not cov.exists():
         print("coverage.xml not found; nothing to summarize.")
@@ -17,6 +21,9 @@ def get_coverage_summary() -> Optional[str]:
     try:
         tree = ET.parse(cov)
         root = tree.getroot()
+        if root is None:
+            print("Error: coverage.xml has no root element.")
+            return None
 
         lines_valid_str = root.get("lines-valid", "0")
         lines_covered_str = root.get("lines-covered", "0")
@@ -41,15 +48,13 @@ def get_coverage_summary() -> Optional[str]:
 
 
 def main() -> None:
-    """
-    Main function to run the script.
-    """
+    """Run the script."""
     summary = get_coverage_summary()
 
     if summary:
         out = os.environ.get("GITHUB_STEP_SUMMARY")
         if out:
-            with open(out, "a", encoding="utf-8") as f:
+            with Path(out).open("a", encoding="utf-8") as f:
                 f.write(summary)
         else:
             print(summary)

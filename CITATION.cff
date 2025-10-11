@@ -4,6 +4,5 @@ message: If you use this software, please cite it as below.
 type: software
 authors:
   - name: Civic Interconnect
-repository-code: https://github.com/civic-interconnect/civic-transparency-sdk
+repository-code: https://github.com/civic-interconnect/civic-transparency-py-sdk
 license: MIT
-

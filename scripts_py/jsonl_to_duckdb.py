@@ -1,18 +1,14 @@
 # scripts_py/jsonl_to_duckdb.py
-"""
-Load a JSONL file of window aggregation results into a DuckDB database.
+"""Load a JSONL file of window aggregation results into a DuckDB database.
 
 Usage:
   py -m scripts_py.jsonl_to_duckdb --jsonl world_A.jsonl --duck world_A.duckdb --schema schema/schema.sql
 """
 
-from __future__ import annotations
-
 import argparse
-import json
 from datetime import datetime
+import json
 from pathlib import Path
-from typing import Dict, List
 
 import duckdb
 
@@ -40,8 +36,8 @@ def table_exists(con: duckdb.DuckDBPyConnection, name: str) -> bool:
     return row is not None
 
 
-def load_jsonl_rows(jsonl_path: Path) -> List[Dict]:
-    rows: List[Dict] = []
+def load_jsonl_rows(jsonl_path: Path) -> list[dict]:
+    rows: list[dict] = []
     with jsonl_path.open("r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -54,7 +50,7 @@ def parse_ts(s: str) -> datetime:
     return datetime.fromisoformat(s.rstrip("Z"))
 
 
-def to_params(row: Dict) -> list:
+def to_params(row: dict) -> list:
     tmix = row["type_mix"]
     return [
         row.get("world_id", ""),

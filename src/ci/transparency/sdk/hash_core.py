@@ -1,7 +1,4 @@
-"""
-sdk/hash_core.py
-Core data structures for content hashes.
-"""
+"""Core data structures for content hashes."""
 
 from dataclasses import dataclass
 

@@ -7,7 +7,7 @@ The civic transparency simulation core provides a structured type system for rep
 ### Window Aggregation
 The fundamental unit of analysis is a time window containing aggregated activity data. Each window represents a slice of time (typically 10-15 minutes) with calculated metrics and content fingerprints.
 
-### Content Clustering  
+### Content Clustering
 Content is identified through hash-based clustering. Similar content gets grouped under topic identifiers, enabling analysis of how specific topics or themes spread through systems.
 
 ### Fingerprinting
@@ -18,7 +18,7 @@ Content fingerprints use multiple techniques:
 ### Temporal Patterns
 Activity patterns are captured through:
 - Time-series data within windows
-- Cross-window trend analysis  
+- Cross-window trend analysis
 - Burst detection and anomaly scoring
 
 ## Type Categories
@@ -30,7 +30,7 @@ Essential data structures for window-based analysis:
 - **ContentHash**: Hash-based content identification
 - **Digests**: Content fingerprinting data structures
 
-### Configuration Types  
+### Configuration Types
 Control structures for generation and analysis:
 
 - **EventConfig**: Configuration for temporal events and scenarios

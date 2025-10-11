@@ -4,10 +4,15 @@ root = true
 [*]
 # Unix-style line endings
 end_of_line = lf
-# Add a newline at the end of the file
 insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 2
 
 # Use 4-space indentation for Python files
 [*.py]
 indent_style = space
 indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = true

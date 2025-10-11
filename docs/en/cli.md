@@ -28,7 +28,7 @@ ct-sdk generate [OPTIONS]
 
 **Optional Arguments:**
 - `--windows INTEGER`: Number of time windows [default: 12]
-- `--step-minutes INTEGER`: Minutes per window [default: 10]  
+- `--step-minutes INTEGER`: Minutes per window [default: 10]
 - `--seed INTEGER`: Random seed for reproducibility [default: 4242]
 
 **Influence Parameters** (optional):

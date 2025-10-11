@@ -106,42 +106,42 @@ The loader:
 
 **Basic aggregations:**
 ```sql
-SELECT 
+SELECT
     world_id,
     AVG(dup_rate) as avg_dup_rate,
     AVG(hash_concentration) as avg_concentration,
     AVG(burst_score) as avg_burst_score
-FROM events 
+FROM events
 GROUP BY world_id;
 ```
 
 **Time series analysis:**
 ```sql
-SELECT 
+SELECT
     window_start,
     n_messages,
     dup_rate,
     burst_score
-FROM events 
+FROM events
 WHERE world_id = 'A'
 ORDER BY window_start;
 ```
 
 **Content type analysis:**
 ```sql
-SELECT 
+SELECT
     world_id,
     AVG(type_post) as avg_post_share,
     AVG(type_reply) as avg_reply_share,
     AVG(type_retweet) as avg_retweet_share
-FROM events 
+FROM events
 GROUP BY world_id;
 ```
 
 **JSON data extraction:**
 ```sql
 -- Extract top hash information (DuckDB JSON functions)
-SELECT 
+SELECT
     world_id,
     topic_id,
     json_extract_string(top_hashes, '$[0].hash.id.value') as top_hash_id,

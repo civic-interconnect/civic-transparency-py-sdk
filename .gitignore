@@ -6,9 +6,10 @@
 .DS_Store
 
 # ----------------------------------------
-# Visual Studio Code (always ignore)
+# IDE (always ignore)
 # ----------------------------------------
 .vscode/
+.idea/
 
 # ----------------------------------------
 # Environment variables and secrets (always ignore)
@@ -24,6 +25,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.py[cod]
 *.egg-info/
 dist/
 build/
@@ -42,37 +44,38 @@ htmlcov/
 .nox/
 
 # ----------------------------------------
+# Generated artifacts (ignore build and distribution artifacts)
+# ----------------------------------------
+artifacts/
+
+# ----------------------------------------
 # Packaging tools
 # ----------------------------------------
 *.manifest
 *.spec
 
 # ----------------------------------------
-# Jupyter Notebook checkpoints
-# ----------------------------------------
-.ipynb_checkpoints/
-
-# ----------------------------------------
 # Local tools & cache
 # ----------------------------------------
 .mypy_cache/
-.ruff_cache/
+ruff_cache/
 .cache/
+*.backup
 
 # ----------------------------------------
-# Generated version files
+# Generated _version by setuptools_scm (always ignore)
 # ----------------------------------------
-src/ci/transparency/types/_version.py
+_version.py # not used
 
 # ----------------------------------------
-# Generated data files 
+# Generated website files (always ignore)
+# ----------------------------------------
+site/
+
+
+# ----------------------------------------
+# Generated data files
 # ----------------------------------------
 data/
 *.duckdb
 *.jsonl
-
-# ----------------------------------------
-# setuptools-scm recreates _version.py from Git tags 
-# on every build or install, so ignore it here.
-# ----------------------------------------
-*_version.py

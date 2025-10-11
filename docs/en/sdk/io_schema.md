@@ -12,7 +12,7 @@ The I/O schema module provides functions and utilities for converting between in
 
 **windowagg_to_json()**
 ```python
-def windowagg_to_json(window: WindowAgg) -> Dict[str, Any]:
+def windowagg_to_json(window: WindowAgg) -> dict[str, Any]:
     """Convert WindowAgg to JSON-serializable dictionary."""
 ```
 
@@ -23,7 +23,7 @@ Converts a WindowAgg object to a dictionary suitable for JSON serialization. Han
 
 **windowagg_from_json()**
 ```python
-def windowagg_from_json(data: Dict[str, Any]) -> WindowAgg:
+def windowagg_from_json(data: dict[str, Any]) -> WindowAgg:
     """Convert JSON dictionary back to WindowAgg object."""
 ```
 
@@ -99,7 +99,7 @@ def read_windows_jsonl(filepath: str) -> List[WindowAgg]:
 def window_to_db_params(window: WindowAgg) -> tuple:
     """Convert WindowAgg to database parameters."""
     json_data = windowagg_to_json(window)
-    
+
     return (
         json_data['world_id'],
         json_data['topic_id'],
@@ -165,25 +165,25 @@ def window_to_db_params(window: WindowAgg) -> tuple:
 
 ### Validation
 ```python
-def validate_json_schema(data: Dict[str, Any]) -> List[str]:
+def validate_json_schema(data: dict[str, Any]) -> list[str]:
     """Validate JSON data against expected schema."""
     errors = []
-    
+
     required_fields = ['world_id', 'topic_id', 'window_start', 'window_end']
     for field in required_fields:
         if field not in data:
             errors.append(f"Missing required field: {field}")
-    
+
     # Type validation
     if 'dup_rate' in data and not isinstance(data['dup_rate'], (int, float)):
         errors.append("dup_rate must be numeric")
-    
+
     return errors
 ```
 
 ### Error Recovery
 ```python
-def safe_windowagg_from_json(data: Dict[str, Any]) -> Optional[WindowAgg]:
+def safe_windowagg_from_json(data: dict[str, Any]) -> Optional[WindowAgg]:
     """Safely convert JSON to WindowAgg with error handling."""
     try:
         return windowagg_from_json(data)

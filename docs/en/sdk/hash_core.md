@@ -40,7 +40,7 @@ crypto_hash = HashId("sha256", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934c
 sim64 = HashId("simhash64", "9f3a5c10aa55ee77")
 ```
 
-Note: Multi-value fingerprints like MinHash are not represented as HashId. 
+Note: Multi-value fingerprints like MinHash are not represented as HashId.
 They live in [Digests](digests.md).
 
 

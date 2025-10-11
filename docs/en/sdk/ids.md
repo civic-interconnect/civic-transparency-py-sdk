@@ -38,7 +38,7 @@ Identifier for simulation worlds.
 @dataclass
 class WorldId:
     value: str
-    
+
     def __post_init__(self):
         if not self.value:
             raise ValueError("World ID cannot be empty")
@@ -67,7 +67,7 @@ Examples (strings stored in DB):
 - minhash-lsh:AbC1_2xY... (base64url if not hex)
 - opaque-topic:t_001
 
-Note: TopicId is not a human-readable label. 
+Note: TopicId is not a human-readable label.
 TopicId is a stable, privacy-preserving cluster key.
 
 ## Usage Examples
@@ -165,7 +165,7 @@ class IdValidator:
     def is_valid_world_id(world_id: str) -> bool:
         """Check if world ID format is valid."""
         return bool(world_id and len(world_id) <= 64 and world_id.replace("_", "").replace("-", "").isalnum())
-    
+
     @staticmethod
     def is_valid_topic_id(topic_id: str) -> bool:
         """Check if topic ID format is valid."""
@@ -178,7 +178,7 @@ class IdRegistry:
     def __init__(self):
         self.used_world_ids = set()
         self.used_topic_ids = set()
-    
+
     def register_world_id(self, world_id: WorldId) -> bool:
         """Register world ID and check uniqueness."""
         if world_id.value in self.used_world_ids:
