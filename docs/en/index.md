@@ -30,7 +30,7 @@ It enables researchers and educators to:
 Install the package:
 
 ```bash
-pip install civic-transparency-sim
+pip install civic-transparency-sdk
 ```
 
 Generate synthetic data:
@@ -64,3 +64,21 @@ It does **not** include:
 - Operational rules or alerting logic
 
 These remain separate to prevent adversarial misuse while enabling legitimate transparency research.
+
+
+---
+
+## Documentation Index
+
+- [CLI Reference](./cli.md)
+- [SDK API Reference](./sdk/overview.md)
+- [Schema Reference](./schema.md)
+
+
+---
+
+## Related Projects
+
+- Civic Transparency PTag Spec
+- Civic Transparency PTag Types
+- Civic Transparency Verify (research)

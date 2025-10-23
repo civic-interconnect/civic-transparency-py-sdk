@@ -26,7 +26,7 @@ jobs:
       - name: Setup Python and cache
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
           cache: "pip"
 
       - name: Versioning. Extract plain version from tag (no leading `v`)

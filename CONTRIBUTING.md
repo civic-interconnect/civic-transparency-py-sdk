@@ -59,7 +59,7 @@ uv run pytest
 uv run mkdocs build --strict
 ```
 
-Or run the project hooks (twice, if needed):
+Run the project hooks (twice, if needed):
 
 ```bash
 pre-commit run --all-files

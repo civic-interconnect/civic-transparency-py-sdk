@@ -7,7 +7,7 @@ The `ct-sdk` command-line interface provides simple workflows for data generatio
 After installing the package, the CLI is available as `ct-sdk`:
 
 ```bash
-pip install civic-transparency-sim
+pip install civic-transparency-sdk
 ct-sdk --help
 ```
 

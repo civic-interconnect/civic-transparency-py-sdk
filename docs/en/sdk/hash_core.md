@@ -44,7 +44,7 @@ Note: Multi-value fingerprints like MinHash are not represented as HashId.
 They live in [Digests](digests.md).
 
 
-### ContentHash {#contenthash}
+### ContentHash
 
 Wrapper for a `HashId`.
 
@@ -64,7 +64,7 @@ from ci.transparency.sdk import ContentHash, HashId
 content = ContentHash(HashId("opaque", "content_123"))
 ```
 
-### TopHash {#tophash}
+### TopHash
 
 Represents a content item (by `ContentHash`) with its frequency.
 

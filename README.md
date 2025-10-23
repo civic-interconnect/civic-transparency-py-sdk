@@ -1,7 +1,7 @@
 # Civic Transparency Software Development Kit (SDK)
 
 [![Docs](https://img.shields.io/badge/docs-mkdocs--material-blue)](https://civic-interconnect.github.io/civic-transparency-py-sdk/)
-[![PyPI](https://img.shields.io/pypi/v/civic-transparency-py-sdk.svg)](https://pypi.org/project/civic-transparency-py-sdk/)
+[![PyPI](https://img.shields.io/pypi/v/civic-transparency-sdk.svg)](https://pypi.org/project/civic-transparency-sdk/)
 [![Python versions](https://img.shields.io/pypi/pyversions/civic-transparency-py-sdk.svg)](https://pypi.org/project/civic-transparency-py-sdk/)
 [![CI Status](https://github.com/civic-interconnect/civic-transparency-py-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/civic-interconnect/civic-transparency-py-sdk/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
@@ -12,7 +12,7 @@ Synthetic data generation toolkit for civic transparency research and testing.
 ## Installation
 
 ```pwsh
-pip install civic-transparency-py-sdk
+pip install civic-transparency-sdk
 ```
 
 ## What This Package Provides

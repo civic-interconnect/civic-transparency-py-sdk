@@ -1,14 +1,20 @@
-"""Script to parse coverage.xml and output a formatted coverage summary.
+"""Parse coverage.xml and append a concise summary to GITHUB_STEP_SUMMARY.
 
-This script reads a coverage.xml file, extracts line and branch coverage statistics,
-and prints or writes a Markdown-formatted summary suitable for GitHub Actions.
+File: .github/scripts/coverage_summary.py
 """
 
-# .github/scripts/coverage_summary.py
 import os
 from pathlib import Path
 
 import defusedxml.ElementTree as ET  # noqa: N817
+
+
+def safe_int(value: str | None) -> int:
+    """Convert string to int safely, returning 0 on fail."""
+    try:
+        return int(value) if value else 0
+    except ValueError:
+        return 0
 
 
 def get_coverage_summary() -> str | None:
@@ -25,16 +31,13 @@ def get_coverage_summary() -> str | None:
             print("Error: coverage.xml has no root element.")
             return None
 
-        lines_valid_str = root.get("lines-valid", "0")
-        lines_covered_str = root.get("lines-covered", "0")
-        branches_valid_str = root.get("branches-valid", "0")
-        branches_covered_str = root.get("branches-covered", "0")
+        # Safely extract coverage values (default to zero if missing)
+        lines_valid = safe_int(root.get("lines-valid"))
+        lines_covered = safe_int(root.get("lines-covered"))
+        branches_valid = safe_int(root.get("branches-valid"))
+        branches_covered = safe_int(root.get("branches-covered"))
 
-        lines_valid = int(lines_valid_str) if lines_valid_str else 0
-        lines_covered = int(lines_covered_str) if lines_covered_str else 0
-        branches_valid = int(branches_valid_str) if branches_valid_str else 0
-        branches_covered = int(branches_covered_str) if branches_covered_str else 0
-
+        # Compute percentages safely
         pct = (100.0 * lines_covered / lines_valid) if lines_valid else 0.0
         bpct = (100.0 * branches_covered / branches_valid) if branches_valid else 0.0
 
@@ -50,14 +53,17 @@ def get_coverage_summary() -> str | None:
 def main() -> None:
     """Run the script."""
     summary = get_coverage_summary()
+    if not summary:
+        return
 
-    if summary:
-        out = os.environ.get("GITHUB_STEP_SUMMARY")
-        if out:
-            with Path(out).open("a", encoding="utf-8") as f:
-                f.write(summary)
-        else:
-            print(summary)
+    out = os.environ.get("GITHUB_STEP_SUMMARY")
+
+    # Append if GitHub provides a summary file; otherwise print to stdout
+    if out:
+        with Path(out).open("a", encoding="utf-8") as f:
+            f.write(summary)
+    else:
+        print(summary)
 
 
 if __name__ == "__main__":

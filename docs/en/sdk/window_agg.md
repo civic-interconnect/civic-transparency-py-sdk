@@ -123,9 +123,10 @@ The `digests` field is optional to support scenarios where content fingerprintin
 
 ## Related Types
 
-- [TopHash](hash_core.md#tophash) - Individual content cluster data
-- [Digests](digests.md) - Content fingerprinting data
-- [ContentHash](hash_core.md#contenthash) - Content identification
+- [TopHash](hash_core.md#tophash) – Individual content cluster data
+- [ContentHash](hash_core.md#contenthash) – Content identification
+- [Digests](digests.md) – Content fingerprinting data
+
 
 ## Database Storage
 
