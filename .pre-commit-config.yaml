@@ -1,0 +1,56 @@
+# .pre-commit-config.yaml
+#
+# This file runs quality checks through uvx.
+#
+# Install after creating virtual environment:
+#   uv run pre-commit install
+#
+# Periodically update:
+#   uvx pre-commit autoupdate
+#
+# Run all checks (might have to run it twice):
+#   uv run pre-commit run --all-files
+---
+# Don't attempt to format these kinds of files
+exclude: |
+  (?x)^(
+    \.venv/|
+    dist/|
+    build/|
+    htmlcov/|
+    site/|
+    .*\.egg-info/ |
+    \.pytest_cache/|
+    \.mypy_cache/
+  )
+
+repos:
+  - repo: local
+    hooks:
+      # ------------------- BASELINE CHECKS -------------------
+
+      - id: B1-validate-pyproject
+        name: B1) Validate pyproject
+        entry: uvx validate-pyproject
+        language: system
+        pass_filenames: false
+
+      - id: B2-ruff-format
+        name: B2) Ruff format (normalizes EOF and whitespace)
+        entry: uvx ruff format
+        language: system
+        pass_filenames: false
+        types: [python]
+
+      - id: B3-deptry
+        name: B3) Deptry
+        entry: uv run deptry .
+        language: system
+        pass_filenames: false
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.6
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit"]
