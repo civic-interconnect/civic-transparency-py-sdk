@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/cli/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/cli/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/schema/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/schema/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/usage/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/usage/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/digests/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/digests/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/hash_core/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/hash_core/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/ids/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/ids/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/io_schema/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/io_schema/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/overview/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/overview/"/>
+    </url>
+    <url>
+        <loc>https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/window_agg/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://civic-interconnect.github.io/civic-transparency-py-sdk/0.1.2/sdk/window_agg/"/>
+    </url>
+</urlset>
