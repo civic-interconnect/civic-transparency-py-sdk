@@ -108,7 +108,7 @@ pytest -q
 ```shell
 git add .
 git commit -m "Prep vx.y.z"
-git push origin main
+git push -u origin main
 ```
 
 ## DEV 8. Git tag and Push tag
